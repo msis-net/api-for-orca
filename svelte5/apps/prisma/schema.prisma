@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+//datasource db {
+// provider = "postgresql"
+//  url      = env("DATABASE_URL")
+//}
+
+
+model weborca {
+  pkey Int @default(autoincrement()) @id
+  enable Boolean  @default(true)
+  debug Boolean  @default(false)
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  url String?
+  certificate String?
+  certBinary Bytes?
+  certPassword String?
+  certExpiry String?
+  loginId String?
+  loginPassword String?
+}

@@ -1,0 +1,29 @@
+services:
+  api_for_orca_s4:
+    build:
+      context: ./svelte4/apps
+      dockerfile: Dockerfile
+    container_name: "api_for_orca_s4"
+    working_dir: /apps
+    ports:
+      - "3004:3000"
+    #networks:
+    #  - of_net
+    tty: true
+    restart: always
+
+  api_for_orca_s5:
+    build:
+      context: ./svelte5/apps
+      dockerfile: Dockerfile
+    container_name: "api_for_orca_s5"
+    working_dir: /apps
+    ports:
+      - "3005:3000"
+    #networks:
+    #  - of_net
+    tty: true
+    restart: always
+#networks:
+#  of_net:
+#    driver: bridge
