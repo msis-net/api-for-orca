@@ -9,6 +9,9 @@ RUN npm install
 # Copy project files
 COPY . .
 
+
+#データベースの移行
+RUN npx prisma migrate dev
 # Generate Prisma client
 RUN npx prisma generate
 
