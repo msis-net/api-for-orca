@@ -8,11 +8,14 @@ RUN npm install
 
 # Copy project files
 COPY . .
-
-#データベースの移行
-RUN npx prisma migrate dev
 # Generate Prisma client
 RUN npx prisma generate
+#データベースの移行
+RUN npx prisma migrate dev
+
+# 環境変数を定義
+ENV DATABASE_URL="file:./dev.db"
+
 # Expose port 3000
 EXPOSE 3000
 

@@ -15,7 +15,7 @@ export const load = (async ({ params }) => {
 			// certBinaryは除外
 		}
 	});
-
+	//console.log(weborcaData);
 	return {
 		config: {
 			weborca: weborcaData
